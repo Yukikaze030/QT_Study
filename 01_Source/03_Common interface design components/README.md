@@ -29,15 +29,16 @@ str = str.sprintf("%.2f",total);
 
 ## QSpinBox的使用
 
-| 属性名称           | 描述                                                    |
-| ------------------ | ------------------------------------------------------- |
-| prefix             | 数字显示的前缀                                          |
-| suffix             | 数字显示的后缀                                          |
-| minimum            | 数字范围的最小值                                        |
-| maximum            | 数字范围的最大值                                        |
-| singlestep         | 单步改变值                                              |
-| value              | 当前显示的值                                            |
-| displayIntegerBase | QSpinBox特有属性，显示整数使用的进制，例如2就表示二进制 |
-| decimals           | QDoubleSpinBox特有属性，显示数值的小数位数，            |
-|                    |                                                         |
+| 属性名称           | 描述                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| prefix             | 数字显示的前缀                                               |
+| suffix             | 数字显示的后缀                                               |
+| minimum            | 数字范围的最小值                                             |
+| maximum            | 数字范围的最大值                                             |
+| singlestep         | 单步改变值                                                   |
+| value              | 当前显示的值                                                 |
+| displayIntegerBase | QSpinBox特有属性，显示整数使用的进制，例如2就表示二进制      |
+| decimals           | QDoubleSpinBox特有属性，显示数值的小数位数，例如2就显示2为小数 |
+
+## 其他数值输入和显示组件
 
