@@ -50,6 +50,6 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
 
 void MainWindow::on_dial_valueChanged(int value)
 {
-
+    ui->lcdNumber->display(value);
 }
 

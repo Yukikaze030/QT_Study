@@ -19,6 +19,8 @@ private slots:
     void on_m_horizontalSlider_Red_valueChanged(int value);
     void on_horizontalSlider_valueChanged(int value);
 
+    void on_dial_valueChanged(int value);
+
 private:
     void InitUI();
 private:
