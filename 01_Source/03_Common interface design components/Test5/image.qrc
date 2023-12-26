@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file alias="image1">C:/Users/CZTEK/AppData/Local/Programs/Microsoft VS Code/resources/app/extensions/microsoft-authentication/media/favicon.ico</file>
+    </qresource>
+</RCC>

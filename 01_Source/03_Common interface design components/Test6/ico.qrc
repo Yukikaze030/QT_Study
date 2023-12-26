@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ico/Add.ico</file>
+        <file>ico/Clear.ico</file>
+        <file>ico/Delete.ico</file>
+        <file>ico/Reset.ico</file>
+        <file>ico/Selection.ico</file>
+        <file>ico/Insert.ico</file>
+        <file>ico/exit.ico</file>
+        <file>ico/normal.ico</file>
+    </qresource>
+</RCC>
