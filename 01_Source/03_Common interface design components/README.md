@@ -79,7 +79,7 @@ currentItemIcon	为当前分组设置一个图标，显示在文字标题的左�
 
 在一个ToolBox内可以放置任何界面组件，并设置为Grid布局。不要使用水平布局，因为使用水平布局时，组内的ToolButton按键都是自动向左靠齐的，而使用Grid布局时，自动居中。
 
-## QListWidget操作
+### QListWidget操作
 
 ```c++
     if(chk)//可编辑
@@ -92,3 +92,4 @@ currentItemIcon	为当前分组设置一个图标，显示在文字标题的左�
     }
 ```
 
+## QTreeWidget和QDockWidget

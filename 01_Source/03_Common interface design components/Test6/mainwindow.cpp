@@ -7,18 +7,19 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QMenu* Menu = new QMenu(ui->m_List_toolButton_Selection);
-    Menu->addAction(ui->actionSelectAll);
-    Menu->addAction(ui->actionCheckOutAll);
-    Menu->addAction(ui->actionInvertSelection);
+    createSelectionPopMenu();
+//    QMenu* Menu = new QMenu(ui->m_List_toolButton_Selection);
+//    Menu->addAction(ui->actionSelectAll);
+//    Menu->addAction(ui->actionCheckOutAll);
+//    Menu->addAction(ui->actionInvertSelection);
     //ui->actionAddItem->setMenu(Menu);
 
-    QToolButton* m_button = new QToolButton();
-    m_button->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    m_button->setDefaultAction(ui->actionItemSelection);
-    m_button->setMenu(Menu);
+//    QToolButton* m_button = new QToolButton();
+//    m_button->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+//    m_button->setDefaultAction(ui->actionItemSelection);
+//    m_button->setMenu(Menu);
 
-    ui->toolBar_2->addWidget(m_button);
+//    ui->toolBar_2->addWidget(m_button);
 
     ui->m_toolButton_Reset->setDefaultAction(ui->actionResetList);
     ui->m_toolButton_Clear->setDefaultAction(ui->actionClearList);
@@ -26,8 +27,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->m_toolButton_Insert->setDefaultAction(ui->actionInsertEntry);
     ui->m_toolButton_Add->setDefaultAction(ui->actionAddItem);
 
-    ui->m_List_toolButton_Selection->setDefaultAction(ui->actionItemSelection);
-    ui->m_List_toolButton_Selection->setMenu(Menu);
+    ui->listWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+//    ui->m_List_toolButton_Selection->setDefaultAction(ui->actionItemSelection);
+//    ui->m_List_toolButton_Selection->setMenu(Menu);
 }
 
 MainWindow::~MainWindow()
@@ -87,8 +89,8 @@ void MainWindow::on_actionInsertEntry_triggered()
     {
         aItem->setFlags(Qt::ItemIsSelectable|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
     }
-    ui->listWidget->addItem(aItem);
-
+    int row = ui->listWidget->currentRow();
+    ui->listWidget->insertItem(row,aItem);
 
 }
 
@@ -170,4 +172,50 @@ void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QLis
     }
 }
 
+void MainWindow::createSelectionPopMenu()
+{
+    //创建下拉菜单
+    QMenu* menuSelection = new QMenu(this);
+    menuSelection->addAction(ui->actionSelectAll);
+    menuSelection->addAction(ui->actionCheckOutAll);
+    menuSelection->addAction(ui->actionInvertSelection);
+
+    //ListWidget上方的m_List_toolButton_InvertSelection按钮
+    ui->m_List_toolButton_Selection->setPopupMode(QToolButton::MenuButtonPopup);
+    ui->m_List_toolButton_Selection->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    ui->m_List_toolButton_Selection->setDefaultAction(ui->actionItemSelection);
+    ui->m_List_toolButton_Selection->setMenu(menuSelection);
+
+    //工具栏上的下拉式菜单按钮
+    QToolButton *aBtn=new QToolButton(this);
+    aBtn->setPopupMode(QToolButton::InstantPopup);
+    aBtn->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    aBtn->setDefaultAction(ui->actionItemSelection);
+    aBtn->setMenu(menuSelection);
+
+    ui->toolBar_2->addWidget(aBtn);
+    ui->toolBar_2->addSeparator();
+    ui->toolBar_2->addAction(ui->actionExit);
+
+}
+
+
+
+void MainWindow::on_listWidget_customContextMenuRequested(const QPoint &pos)
+{
+    Q_UNUSED(pos);
+    QMenu* menuList=new QMenu(this);
+
+    menuList->addAction(ui->actionResetList);
+    menuList->addAction(ui->actionClearList);
+    menuList->addAction(ui->actionInsertEntry);
+    menuList->addAction(ui->actionAddItem);
+    menuList->addAction(ui->actionDeleteItem);
+    menuList->addSeparator();
+    menuList->addAction(ui->actionSelectAll);
+    menuList->addAction(ui->actionCheckOutAll);
+    menuList->addAction(ui->actionInvertSelection);
+    menuList->exec(QCursor::pos());
+    delete menuList;
+}
 

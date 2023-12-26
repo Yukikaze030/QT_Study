@@ -322,8 +322,6 @@
    <addaction name="actionInsertEntry"/>
    <addaction name="actionAddItem"/>
    <addaction name="actionDeleteItem"/>
-   <addaction name="separator"/>
-   <addaction name="actionExit"/>
   </widget>
   <action name="actionResetList">
    <property name="icon">

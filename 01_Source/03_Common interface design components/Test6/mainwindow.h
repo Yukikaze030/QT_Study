@@ -35,7 +35,10 @@ private slots:
 
     void on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 
+    void on_listWidget_customContextMenuRequested(const QPoint &pos);
+
 private:
     Ui::MainWindow *ui;
+    void createSelectionPopMenu();
 };
 #endif // MAINWINDOW_H
