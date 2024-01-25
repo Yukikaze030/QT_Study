@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/ico">
+        <file>ico/ActualSize.ico</file>
+        <file>ico/AddDir.ico</file>
+        <file>ico/AddFile.ico</file>
+        <file>ico/BlowDown.ico</file>
+        <file>ico/BlowUp.ico</file>
+        <file>ico/DeletedIcon.ico</file>
+        <file>ico/Exit.ico</file>
+        <file>ico/FitWidth.ico</file>
+        <file>ico/FormFloat.ico</file>
+        <file>ico/SuitableHeight.ico</file>
+        <file>ico/TraversalNode.ico</file>
+        <file>ico/15.ico</file>
+    </qresource>
+</RCC>

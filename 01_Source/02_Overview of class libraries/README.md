@@ -4,7 +4,7 @@
 
 ### Q_DECL_OVERRIDE
 
-在类定义中，用于重载有关虚函数，使用Q_DECL_OVERRIDE宏后，如果重载的虚函数没有进行任何重载操作，编译器会报错。
+1在类定义中，用于重载有关虚函数，使用Q_DECL_OVERRIDE宏后，如果重载的虚函数没有进行任何重载操作，编译器会报错。
 
 ### Q_DECL_IMPORT和Q_DECL_EXPORT
 
