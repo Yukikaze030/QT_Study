@@ -115,3 +115,61 @@ QTreeWidgetItem* topLevelItem(int index);//返回序号为index的顶层节点
 | QPixmap scaled(int width,int height) | 返回一个缩放后的图片副本，图片缩放到宽度width和高度height,缺省为不保持比例 |
 
 在QLabel上显示图片，使用QLabel的setPixmap(const QPixmap &)函数
+
+## QTableWidget的使用
+
+### QTableWidget操作
+
+每个单元格都是一个**QTableWidgetItem**对象，QTableWidgetItem对象存储了单元格的所有内容，包括字标题、格式设置，以及关联的数据。
+
+创建QTableWidgetItem的构造原型为:
+
+QTableWidgetItem::QTableWidgetItem(const QString &text,int type =Type)
+
+第一个参数为单元格显示文字，第二个参数为节点类型
+
+```C++
+    //姓名
+    item = new QTableWidgetItem(Name,MainWindow::ctName);
+    item->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    StudID +=rowNo;//学号=学号基数+行数
+    item->setData(Qt::UserRole,QVariant(StudID));//设置studID为data
+    ui->tableInfo->setItem(rowNo,MainWindow::colName,item);
+```
+
+“姓名”单元格还调用了setData设置了一个自定义数据，存储的是学生ID。
+
+自定义数据是不显示在界面上的，但是与单元格相关联。表格并没有显示学号，学号是“姓名”单元格的关联数据(类似Map?单元格是Map，setData(Key,Value)?)
+
+
+
+获取单元格数据
+
+当鼠标单击单元格时，被选择的单元格为当前单元格。通过QTableWidget的currentColumn()和2currentRow()可以获得当前单元格的列编号和行编号。
+
+当单元格发生切换时，会发射currentCellChanged()信号和currentItemChanged()信号，两个信号都可以利用,只是传递的参数不同。
+
+#### 自动调整行高和列宽
+
+ QTableWidget有几个函数自动调整表格的行高和列宽，分别如下。
+
+|               函数名               |                描述                |
+| :--------------------------------: | :--------------------------------: |
+|     resizeColumnsToContents()      | 自动调整所有列的宽度，以适应其内容 |
+| resizeColumnToContents(int column) |   自动调整列号为column的列的宽度   |
+|       resizeRowsToContents()       | 自动调整所有行的高度，以适应其内容 |
+|    resizeRowToContents(int row)    |    自动调整行号为row的行的高度     |
+
+以上函数均为**QTableWidget**的父类，**QTableView**的函数
+
+#### 间隔行底色
+
+setAlternatingRowColors()函数可以设置表格的行是否使用交替底色显示，若为交替底色，测间隔的一行会用灰色作为底色。具体底色的设置需要用styleSheet
+
+## 杂项备注
+
+### 拆分器
+
+splitter
+
+![image-20240202093802403](.picture/拆分器.png)
