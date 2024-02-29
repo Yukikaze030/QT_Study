@@ -112,3 +112,17 @@ setStringList()函数可以初始化数据模型的字符串列表的内容，st
 
 insertRows()、removeRows()、setData()等，这些操作直接影响数据模型内部的字符串列表。
 
+# QStandItemModel
+
+## 功能描述
+
+QStandardItemModel是标准的以项数据（item data）为基础的标准数据模型类，通常与QTableView组合成Model/View结构，实现通用的二维数据的管理功能。
+
+QStandardItemModel：基于项数据的标准数据模型，可以处理二维数据。维护一个二维的项数据数组，每个项是一个QStandardItem类的变量，用于存储项的数据、字体格式、对齐方式等，
+
+QTableView：二位数据表视图组件，有多个行和多个列，通过setModel()函数设置一个QStandardItemModel类的数据模型后，一个单元格显示QStandardItemModel数据模型中的一个项。
+
+QItemSelectionModel：一个用于跟踪视图组Q件的单元格选择状态的类，获取选中单元格的模型索引。
+
+
+

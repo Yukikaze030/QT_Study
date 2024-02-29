@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/ico">
+        <file>ico/AlignCenter.png</file>
+        <file>ico/AlignLeft.png</file>
+        <file>ico/AlignRight.png</file>
+        <file>ico/Append.png</file>
+        <file>ico/Delete.png</file>
+        <file>ico/Exit.png</file>
+        <file>ico/FontBold.png</file>
+        <file>ico/Insert.png</file>
+        <file>ico/ModelData.png</file>
+        <file>ico/Open.png</file>
+        <file>ico/Save.png</file>
+    </qresource>
+</RCC>
